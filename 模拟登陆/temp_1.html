@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+					
+
+
+		
+
+
+	<head>
+				<title>			超星网空间
+	</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="icon" href="/views/ico/" type="image/x-icon" />
+<link rel="shortcut icon" href="/views/ico/"" type="image/x-icon" />
+<link href="/style/defstyle/css/personal.css?t=1553702446249" type="text/css" rel="stylesheet"/>
+<link href="/style/defstyle/css/notecss.css?t=1553702446249" type="text/css" rel="stylesheet"/>
+<link href="/style/defstyle/css/appicons.css?t=1553702446249" type="text/css" rel="stylesheet"/>
+<link href="/style/defstyle/css/style.css?t=1553702446249" type="text/css" rel="stylesheet"/>
+<link href="/style/defstyle/css/global.css?t=1553702446249" type="text/css" rel="stylesheet">
+<link href="/layui/css/layui.css" type="text/css" rel="stylesheet">
+<!--左侧样式表-->
+<link href="/style/defstyle/css/left.css?temp=201801091144" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/style/defstyle/js/jquery-1.7.2.min.js?t=1553702446249"></script>
+<script type="text/javascript" src="/style/defstyle/js/iframeResizer.min.js"></script>
+<script type="text/javascript" src="/layui/layui.js"></script>
+<style>
+.main{
+  margin-bottom:100px;
+}
+</style>
+<script >
+    document.domain ="chaoxing.com";
+    function onloading() {
+		if (this.readyState == "loading") {
+			$("#frame_content").height("2700px");
+			$(".overlayer").show();
+		}
+		if (this.readyState == "complete")
+			$(".overlayer").hide()
+	}
+	function setHeight(height){
+		$("#frame_content").height(height + 50+"px");
+		window.scrollTo(0,0);
+	}
+	function iframeAutoResize(doc) {
+		var ifm= document.getElementById("frame_content");
+		var subWeb = "";
+		if(ifm != null){
+			try{
+				subWeb = document.frames ? document.frames["frame_content"].document : ifm.contentDocument;
+			}catch(err){
+				return false;
+			}
+		}
+		if(ifm != null && subWeb != null) {
+			$("#frame_content").height(subWeb.body.clientHeight+ "px");
+		}
+	}
+	function secIframeAutoResize() {
+		iframeAutoResize(document.getElementById("frame_content"));
+	}
+	window.setInterval("secIframeAutoResize()", 2000); 
+	var winScroll=$(window.parent.window) ? $(window.parent.window) : $(window);
+	var docScroll=$(window.parent.document) ? $(window.parent.document) : $(document);
+    
+    winScroll.scroll(function(){
+    	if (winScroll.scrollTop()+winScroll.height() >= docScroll.height() - 5) {
+			try{
+				document.getElementById('frame_content').contentWindow.loading(); 
+			}catch(err){
+				return false;
+			}
+		}
+    });
+</script>
+<!--[if IE 6]> 
+     <script type="text/javascript" src="/style/defstyle/js/DD_belatedPNG.js" ></script> 
+     <script type="text/javascript"> 
+     DD_belatedPNG.fix('.headtop .mooclogo,.headdiv .roomicons,.set,.set b'); 
+     </script>
+<![endif]-->
+</head>
+<body style="overflow:scroll;">
+<div class="headbanner_new" style='background:/style/defstyle/images/opacity70.png;min-width:1110px;'>
+		<script type="text/javascript" src='http://www.fanya.chaoxing.com/passport/allHead.shtml?t=1553702446249' charset="utf-8"></script>
+
+</div>
+</div><div class="wrap1200 clearfix">
+	<div class="fl leftSide">
+    	<div class="personalInfor">
+        	<a href="/settings/info" class="headPortrait">
+									<img id="mainphoto" src="http://photo.chaoxing.com/p/96670250_80?temp=1553702446316" width="80" height="80"/>
+							</a>
+			<div id="space_nickname">
+                <p class="personalName" title="窦先生" style="text-align:center;display:block;overflow:hidden;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;">窦先生</p>
+                <a href="/settings/info?t=1553702446249" class="manageBtn">
+					账号管理				</a>
+            </div>
+        </div>
+       <div class="funclist">
+	<ul class="funclistul" style="position:relative">
+					    			    			    			    					<li  class="current"  id = "li_zne_kc_icon">
+    						<span></span>
+    									<a  class="currentpage"  id = "zne_kc_icon"
+		   href="javascript:switchM('zne_kc_icon','http://passport2.chaoxing.com/mooc.jsp?v=1&s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_kc_icon"></b>
+		 <em>课程	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_tkc_icon">
+    						<span></span>
+    									<a  id = "zne_tkc_icon"
+		   href="javascript:switchM('zne_tkc_icon','http://yz4.chaoxing.com/subject_creation/SubjectCreationController/subjectCreationIndex?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+			<b class="liticons znewyun zne_xx_icon" style="height: 20px; margin: 10px 12px 0 10px; width: 20px;background: rgba(0, 0, 0, 0) url(http://p.ananas.chaoxing.com/star3/origin/566a7614498ed8a4294ed33d);"></b>
+		<em>专题创作		</em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_tz_icon">
+    						<span></span>
+    									<a  id = "zne_tz_icon"
+		   href="javascript:switchM('zne_tz_icon','http://notice.chaoxing.com/pc/notice/myNotice?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_tz_icon"></b>
+		 <em>通知	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_xz_icon">
+    						<span></span>
+    									<a  id = "zne_xz_icon"
+		   href="javascript:switchM('zne_xz_icon','http://group.yd.chaoxing.com/pc/circle/circleList?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_xz_icon"></b>
+		 <em>小组	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_yp_icon">
+    						<span></span>
+    									<a  id = "zne_yp_icon"
+		   href="javascript:switchM('zne_yp_icon','http://pan-yz.chaoxing.com?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_yp_icon"></b>
+		 <em>电脑同步云盘	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_sf_icon">
+    						<span></span>
+    									<a  id = "zne_sf_icon"
+		   href="javascript:switchM('zne_sf_icon','http://pc.chaoxing.com/subscribe/index?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_sf_icon"></b>
+		 <em>收藏	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_yyd_icon">
+    						<span></span>
+    									<a  id = "zne_yyd_icon"
+		   href="javascript:switchM('zne_yyd_icon','http://apps.ananas.chaoxing.com/login/rss?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_yyd_icon"></b>
+		 <em>云阅读	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_bz_icon">
+    						<span></span>
+    									<a  id = "zne_bz_icon"
+		   href="javascript:switchM('zne_bz_icon','http://apps.ananas.chaoxing.com/login/paper?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_bz_icon"></b>
+		 <em>报纸	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_ckzx_icon">
+    						<span></span>
+    									<a  id = "zne_ckzx_icon"
+		   href="javascript:switchM('zne_ckzx_icon','http://www.xinyunfuwu.com/myfirst.do?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_ckzx_icon"></b>
+		 <em>参考咨询	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_jc_icon">
+    						<span></span>
+    									<a  id = "zne_jc_icon"
+		   href="javascript:switchM('zne_jc_icon','http://user.dayainfo.com/dsa/auth/cxwkj?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_jc_icon"></b>
+		 <em>论文检测	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_jh_icon">
+    						<span></span>
+    									<a  id = "zne_jh_icon"
+		   href="javascript:switchM('zne_jh_icon','http://plan.chaoxing.com/index__2.shtml?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_jh_icon"></b>
+		 <em>学习计划	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_oldkc_icon">
+    						<span></span>
+    									<a  id = "zne_oldkc_icon"
+		   href="javascript:switchM('zne_oldkc_icon','http://mooc.chaoxing.com/visit/courses?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_oldkc_icon"></b>
+		 <em>旧版课程	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_wk_icon">
+    						<span></span>
+    									<a  id = "zne_wk_icon"
+		   href="javascript:switchM('zne_wk_icon','http://mooc1.chaoxing.com/visit/microcourse/study?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_wk_icon"></b>
+		 <em>微课	     </em>
+		</a>
+    					</li>
+												    			    			    					<li  id = "li_zne_bj_icon">
+    						<span></span>
+    									<a  id = "zne_bj_icon"
+		   href="javascript:switchM('zne_bj_icon','https://groupyd2.chaoxing.com/pc/activity/activityList?s=5a256252aed5c19e228e34626fb9ee40')" target="_top"
+		>
+	         <b class="liticons znewyun zne_bj_icon"></b>
+		 <em>笔记	     </em>
+		</a>
+    					</li>
+																																																																																		</ul>
+	<p class="manageApp"><a href="/app/myapps.shtml" class="rightF"><i></i>管理应用</a></p>
+	    	    		<div class="ewm">
+				 					<img src="/images/ewm.png" width="126" height="126">
+				 	            <p>扫一扫下载手机应用</p>
+	        </div> 
+			</div>
+<script>
+	function switchM(ename,appurl){
+	
+		$("#to_top").remove();
+		
+		$(".funclistul li").each(function(){
+			$(this).attr("class", "");
+		});
+		$(".funclistul li a").each(function(){
+			$(this).attr("class", "");
+		});
+		
+		$(".mainright").attr("style","float:left;padding:0px;width:980px;");
+		$(".mainright").html('<iframe src="" name="frame_content" id="frame_content" onreadystatechange="onloading.call(this)" onload="iframeAutoResize(this)" frameborder="0" scrolling="no"  allowfullscreen="true" allowtransparency="true" style="border: 0px; height:981px; min-height:700px; " width="100%"></iframe>');
+		$("#"+ename).attr("class", "currentpage");
+		$("#li_"+ename).attr("class", "current");
+		$("#frame_content").attr("src", appurl);
+		try{
+     	 	$('iframe').iFrameResize([{log: true}]);
+   		 }catch(e){}
+
+	}
+</script>	</div>
+        
+		    
+<div class="mainright rightF" style="float:left;padding:0px;width:980px;margin-bottom:64px;">
+	<iframe src="http://passport2.chaoxing.com/mooc.jsp?v=1&s=5a256252aed5c19e228e34626fb9ee40" name="frame_content" id="frame_content" onreadystatechange="onloading.call(this)" allowfullscreen="true" allowtransparency="true" onload="iframeAutoResize(this)" frameborder="0" scrolling="no" style="border: 0px; height:981px; min-height:700px;"  width="100%"></iframe>
+</div>
+<script language="javascript" type="text/javascript">
+	function onloading() {
+		if (this.readyState == "loading") {
+			$("#frame_content").height("2700px");
+			$(".overlayer").show();
+		}
+		if (this.readyState == "complete")
+			$(".overlayer").hide()
+	}
+	function setHeight(height){
+		$("#frame_content").height(height + 50+"px");
+		window.scrollTo(0,0);
+	}
+	function iframeAutoResize(doc) {
+		var ifm= document.getElementById("frame_content");
+		var subWeb = "";
+		try{
+			subWeb = document.frames ? document.frames["frame_content"].document : ifm.contentDocument;
+		}catch(err){
+			return false;
+		}
+		if(ifm != null && subWeb != null) {
+			$("#frame_content").height(subWeb.body.clientHeight + 60+ "px");
+		}
+	}
+	function secIframeAutoResize() {
+		iframeAutoResize(document.getElementById("frame_content"));
+	}
+	window.setInterval("secIframeAutoResize()", 2000); 
+	
+	var def = "";
+$('#sw').val(def);
+$('#sw').focus(function(){
+				if($(this).val() == def){
+					$(this).val('');
+				}
+			});
+$('#sw').blur(function(){
+				if($(this).val() == ''){
+					$(this).val(def);
+				}
+			});
+	function _submit(){
+		if($('#sw').val() == '' || $('#sw').val() == def){
+			$('#sw').val(def);
+			return false;
+		}
+		window.open('http://ss.chaoxing.com/ncs?sw=' + $('#sw').val(),'_blank');
+		return false;
+	}
+	function upusername(){
+	var realname=document.getElementById("uname").value;
+		$.ajax({
+					url : '/settings/resetrealname',
+					dataType:'json',
+					data:{realname : realname},
+					type: 'POST',
+					async:false,
+					success : function(data){
+						if(data.ret == 0){
+							alert(data.msg);
+						}else{
+							top.location.href=top.location.href;
+						}
+					},
+					error : function(e){
+					}
+				});
+	}
+	var winScroll=$(window.parent.window) ? $(window.parent.window) : $(window);
+	var docScroll=$(window.parent.document) ? $(window.parent.document) : $(document);
+    
+    winScroll.scroll(function(){
+    	if (winScroll.scrollTop()+winScroll.height() >= docScroll.height() - 5) {
+			try{
+				document.getElementById('frame_content').contentWindow.loading(); 
+			}catch(err){
+				return false;
+			}
+		}
+    });
+</script>
+    <div class="clear"></div>
+</div>
+	<div class="yqm" style="display:none;">
+	<p class="clearfix"><a href="javascript:void(0);" class="closed fr">X</a></p>
+    <h3>邀请码</h3>
+    <input type="text" class="yqmInp" autocomplete="off">
+    <p style="padding:10px 0;padding-left:71px;color:#b0b0b0;">说明：输入邀请码加入对应的单位</p>
+    <p style="text-align:center;color:#ff4646" class = "msg">抱歉，无此邀请码！</p>
+    <a href="javascript:void(0);" class="sure">确认</a>
+</div>
+		<div class="foot">
+ <span>	    	Copyright ©				超星网空间
+	</span>    </div>
+  
+
+        <script>
+            	$(function(){
+            		$(".leftMenu li").click(function(){
+            			$(this).addClass("current").siblings().removeClass("current")
+            			})
+            	})
+        		$('#leftF').click(function(){
+                	$('.yqm').show();
+					$('.msg').hide();
+        		})
+        		$('.fr').click(function(){
+                	$('.yqm').hide();
+        		})
+        		$('.sure').click(function(){
+					var incode = $(".yqmInp").val();
+					$.ajax({
+                        url:'/space/validate.shtml?incode='+incode+'&time='+new Date().getTime(),
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(data) {
+							if(data.success){
+                    			$.ajax({
+                                    url:'/space/incode_site.shtml?incode='+incode+'&uid=96670250&fid=0&time='+new Date().getTime(),
+                                    type: 'get',
+                                    dataType: 'json',
+                                    success: function(json) {
+                            			if(json.success){
+											$('.msg').hide();
+											$('.yqm').hide();
+                            				window.location.href='/space/index.shtml';
+                            			}
+                                    }
+                				});
+							}else{
+								$('.msg').show();
+								$('.yqm').show();
+							}
+                        }
+    				});
+        	})
+			$('iframe').iFrameResize([{log: true}]);
+        </script>
+</body>
+</html>
