@@ -1,7 +1,7 @@
 # -*-coding:utf-8-*-
 # @File    : login_requests.py
 import requests
-url = 'http://passport2.chaoxing.com/login'
+# url = 'http://passport2.chaoxing.com/login'
 code_url = 'http://passport2.chaoxing.com/num/code?1553701058279'
 login_url = 'http://passport2.chaoxing.com/login?refer=http%3A%2F%2Ffxlogin.chaoxing.com%2Ffindlogin.jsp%3Fbackurl%3Dhttp%253A%252F%252Fwww.chaoxing.com%252Fchannelcookie%253Ftime%253D1553700990412'
 return_url = 'http://i.mooc.chaoxing.com/space/index?t=1553701572714'
@@ -14,8 +14,8 @@ form = {
     "isCheckNumCode": "1",
     "f": "0",
     "productid": "",
-    "uname": "18610059580",
-    "password": "aA659190",
+    "uname": "***************",
+    "password": "***************",
     "numcode": "5536",
     "verCode": "",
 }
@@ -32,11 +32,11 @@ headers = {
 }
 session = requests.session()
 session.headers = headers
-print(session.headers)
-session.get(url)
+
 valcode = session.get(code_url)
-print(session.headers)
+
 print(session.cookies)
+
 temp = open("valcode.png", "wb")
 temp.write(valcode.content)
 temp.close()
@@ -45,8 +45,9 @@ valc = input("input:")
 form["numcode"] = str(valc)
 print(session.cookies)
 resp = session.post(login_url,data=form)
+
 print(session.cookies)
-print(session.headers)
+
 # 把返回的页面写入temp_1.html
 temp = open("temp_1.html", "wb")
 temp.write(resp.content)

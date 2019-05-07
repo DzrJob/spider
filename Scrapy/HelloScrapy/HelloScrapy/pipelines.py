@@ -30,3 +30,42 @@ class HelloscrapyPipeline(object):
         str_item = json.dumps(dict_item, ensure_ascii=False) + '\n'
         return item
 
+import os
+import sqlite3
+
+class BraPipeline(object):
+
+    def __init__(self):
+        self.path = './data.sqlite'
+        if os.path.exists(self.path):
+            os.remove(self.path)
+        # 创建数据库连接
+        self.conn = sqlite3.connect(self.path)
+        # 获取游标
+        self.cursor = self.conn.cursor()
+        sql = """
+                    create table sales(
+                        id integer primary key autoincrement not null,
+                        color text not null,
+                        size text not null,
+                        source text not null,
+                        comment text not null,
+                        date text not null
+                    );
+                """
+        # 执行sql语句
+        self.cursor.execute(sql)
+        # 提交
+        self.conn.commit()
+        # self.f = open('天猫.txt', 'w', encoding='utf-8')
+
+    def close_spider(self, spider):
+        # self.f.close()
+        pass
+    def process_item(self, item, spider):
+        sql = "insert into sales(color,size,source,comment,date) values('%s','%s','%s','%s','%s')" % (
+            item['color'], item['size'], item['source'], item['comment'], item['date'])
+        self.cursor.execute(sql)
+        self.conn.commit()
+        # self.f.write(json.dumps(dict(item), ensure_ascii=False) + '\n')
+        return item

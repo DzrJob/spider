@@ -32,12 +32,12 @@ su.click()
 
 time.sleep(5)
 # 截图当前画面
-driver.save_screenshot('尚硅谷.png')
+driver.save_screenshot('测试.png')
 # 3.当前页面数据,保存
 # 获取源码
 text = driver.page_source
 
-with open('尚硅谷.html', 'w', encoding='utf-8') as f:
+with open('测试.html', 'w', encoding='utf-8') as f:
     f.write(text)
 
 # 4.cookie
@@ -74,3 +74,4 @@ element=WebDriverWait(driver,5,0.5).until(expected_conditions.presence_of_elemen
 driver.quit()
 
 
+# driver.execute_script('')

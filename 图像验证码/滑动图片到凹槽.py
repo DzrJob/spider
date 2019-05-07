@@ -1,5 +1,5 @@
 #-*-coding:utf-8-*- 
-# @File    : »¬¶¯Í¼Æ¬µ½°¼²Û.py
+# @File    : æ»‘åŠ¨å›¾ç‰‡åˆ°å‡¹æ§½.py
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -7,8 +7,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from PIL import Image
-import matplotlib.pyplot as plt
-import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
 
 
 import time
@@ -18,13 +18,13 @@ import time
 
 def get_snap(driver):
     """
-    µÃµ½¿ìÕÕ¶ÔÏó
+    å¾—åˆ°å¿«ç…§å¯¹è±¡
     :param driver:
     :return:
     """
-    driver.save_screenshot('full_snap.png')     # ±£´æÍ¼Æ¬
-    page_snap_obj=Image.open('full_snap.png')   # ¶ÁÈ¡Í¼Æ¬
-    return page_snap_obj                        # ·µ»ØÍ¼Æ¬¶ÔÏó
+    driver.save_screenshot('full_snap.png')     # ä¿å­˜å›¾ç‰‡
+    page_snap_obj=Image.open('full_snap.png')   # è¯»å–å›¾ç‰‡
+    return page_snap_obj                        # è¿”å›å›¾ç‰‡å¯¹è±¡
 
 def get_image(driver):
     """
@@ -34,9 +34,9 @@ def get_image(driver):
     """
     img=driver.find_element_by_class_name('geetest_canvas_img')
     time.sleep(2)
-    # »ñÈ¡Í¼Æ¬×ø±ê
+    # è·å–å›¾ç‰‡åæ ‡
     location=img.location
-    # »ñÈ¡Í¼Ïñ³ß´ç
+    # è·å–å›¾åƒå°ºå¯¸
     size=img.size
 
     left=location['x']
@@ -50,12 +50,12 @@ def get_image(driver):
     # plt.imshow(page_snap_obj)
     # plt.show()
     image_obj=page_snap_obj.crop((left,top,right,bottom))
-    image_obj.show()        # Õ¹Ê¾Í¼Æ¬
+    image_obj.show()        # å±•ç¤ºå›¾ç‰‡
     return image_obj
 
 def get_distance(image1,image2):
     start=57
-    threhold=60     # ·§Öµ
+    threhold=60     # é˜€å€¼
 
     # print('image1',image1)
     # print('image1',image1.size[0])
@@ -89,7 +89,7 @@ def get_distance(image1,image2):
     return i-7
 
 def get_tracks(distance):
-    distance+=20 #ÏÈ»¬¹ıÒ»µã£¬×îºóÔÙ·´×Å»¬¶¯»ØÀ´
+    distance+=20 #å…ˆæ»‘è¿‡ä¸€ç‚¹ï¼Œæœ€åå†åç€æ»‘åŠ¨å›æ¥
     v=0
     t=0.2
     forward_tracks=[]
@@ -107,65 +107,65 @@ def get_tracks(distance):
         current+=s
         forward_tracks.append(round(s))
 
-    #·´×Å»¬¶¯µ½×¼È·Î»ÖÃ
-    back_tracks=[-3,-3,-2,-2,-2,-2,-2,-1,-1,-1] #×Ü¹²µÈÓÚ-20
+    #åç€æ»‘åŠ¨åˆ°å‡†ç¡®ä½ç½®
+    back_tracks=[-3,-3,-2,-2,-2,-2,-2,-1,-1,-1] #æ€»å…±ç­‰äº-20
 
     return {'forward_tracks':forward_tracks,'back_tracks':back_tracks}
 
-def crack(driver): #ÆÆ½â»¬¶¯ÈÏÖ¤
+def crack(driver): #ç ´è§£æ»‘åŠ¨è®¤è¯
 
-    # 1¡¢µã»÷°´Å¥£¬µÃµ½Ã»ÓĞÈ±¿ÚµÄÍ¼Æ¬
+    # 1ã€ç‚¹å‡»æŒ‰é’®ï¼Œå¾—åˆ°æ²¡æœ‰ç¼ºå£çš„å›¾ç‰‡
     button = driver.find_element_by_class_name('geetest_radar_tip')
     button.click()
     time.sleep(2)
     js = 'document.getElementsByClassName("geetest_canvas_fullbg geetest_fade geetest_absolute")[0].style="opacity: 1; display: block;"'
     js2 = "alert(document.getElementsByClassName('geetest_canvas_fullbg geetest_fade geetest_absolute'))"
-    # µ÷ÓÃjs½Å±¾
+    # è°ƒç”¨jsè„šæœ¬
     # driver.execute_script(js)
     driver.execute_script(js)
 
-    # 2¡¢»ñÈ¡Ã»ÓĞÈ±¿ÚµÄÍ¼Æ¬
+    # 2ã€è·å–æ²¡æœ‰ç¼ºå£çš„å›¾ç‰‡
     image1 = get_image(driver)
 
-    # 3¡¢µã»÷»¬¶¯°´Å¥£¬µÃµ½ÓĞÈ±¿ÚµÄÍ¼Æ¬
+    # 3ã€ç‚¹å‡»æ»‘åŠ¨æŒ‰é’®ï¼Œå¾—åˆ°æœ‰ç¼ºå£çš„å›¾ç‰‡
     button = driver.find_element_by_class_name('geetest_slider_button')
     button.click()
 
-    # 4¡¢»ñÈ¡ÓĞÈ±¿ÚµÄÍ¼Æ¬
+    # 4ã€è·å–æœ‰ç¼ºå£çš„å›¾ç‰‡
     image2 = get_image(driver)
 
-    # 5¡¢¶Ô±ÈÁ½ÖÖÍ¼Æ¬µÄÏñËØµã£¬ÕÒ³öÎ»ÒÆ
+    # 5ã€å¯¹æ¯”ä¸¤ç§å›¾ç‰‡çš„åƒç´ ç‚¹ï¼Œæ‰¾å‡ºä½ç§»
     distance = get_distance(image1, image2)
 
-    # 6¡¢Ä£ÄâÈËµÄĞĞÎªÏ°¹ß£¬¸ù¾İ×ÜÎ»ÒÆµÃµ½ĞĞÎª¹ì¼£
+    # 6ã€æ¨¡æ‹Ÿäººçš„è¡Œä¸ºä¹ æƒ¯ï¼Œæ ¹æ®æ€»ä½ç§»å¾—åˆ°è¡Œä¸ºè½¨è¿¹
     tracks = get_tracks(distance)
     print(tracks)
 
-    # 7¡¢°´ÕÕĞĞ¶¯¹ì¼£ÏÈÕıÏò»¬¶¯£¬ºó·´»¬¶¯
+    # 7ã€æŒ‰ç…§è¡ŒåŠ¨è½¨è¿¹å…ˆæ­£å‘æ»‘åŠ¨ï¼Œååæ»‘åŠ¨
     button = driver.find_element_by_class_name('geetest_slider_button')
     ActionChains(driver).click_and_hold(button).perform()
 
-    # Õı³£ÈËÀà×ÜÊÇ×ÔĞÅÂúÂúµØ¿ªÊ¼ÕıÏò»¬¶¯£¬×ÔĞÅµØ±íÏÖÊÇ·è¿ñ¼ÓËÙ
+    # æ­£å¸¸äººç±»æ€»æ˜¯è‡ªä¿¡æ»¡æ»¡åœ°å¼€å§‹æ­£å‘æ»‘åŠ¨ï¼Œè‡ªä¿¡åœ°è¡¨ç°æ˜¯ç–¯ç‹‚åŠ é€Ÿ
     for track in tracks['forward_tracks']:
         ActionChains(driver).move_by_offset(xoffset=track, yoffset=0).perform()
 
-    # ½á¹ûÉµ±ÆÁË£¬Õı³£µÄÈËÀàÍ£¶ÙÁËÒ»ÏÂ£¬»Ø¹ıÉñÀ´·¢ÏÖ£¬ÎÔ²Û£¬»¬¹ıÁË,È»ºó¿ªÊ¼·´Ïò»¬¶¯
+    # ç»“æœå‚»é€¼äº†ï¼Œæ­£å¸¸çš„äººç±»åœé¡¿äº†ä¸€ä¸‹ï¼Œå›è¿‡ç¥æ¥å‘ç°ï¼Œå§æ§½ï¼Œæ»‘è¿‡äº†,ç„¶åå¼€å§‹åå‘æ»‘åŠ¨
     time.sleep(0.5)
     for back_track in tracks['back_tracks']:
         ActionChains(driver).move_by_offset(xoffset=back_track, yoffset=0).perform()
 
-    # Ğ¡·¶Î§Õğµ´Ò»ÏÂ£¬½øÒ»²½ÃÔ»ó¼«ÑéºóÌ¨£¬ÕâÒ»²½¿ÉÒÔ¼«´óµØÌá¸ß³É¹¦ÂÊ
+    # å°èŒƒå›´éœ‡è¡ä¸€ä¸‹ï¼Œè¿›ä¸€æ­¥è¿·æƒ‘æéªŒåå°ï¼Œè¿™ä¸€æ­¥å¯ä»¥æå¤§åœ°æé«˜æˆåŠŸç‡
     ActionChains(driver).move_by_offset(xoffset=-3, yoffset=0).perform()
     ActionChains(driver).move_by_offset(xoffset=3, yoffset=0).perform()
 
-    # ³É¹¦ºó£¬É§°üÈËÀà×ÜÏ²»¶Ä¬Ä¬µØĞÀÉÍÒ»ÏÂ×Ô¼ºÆ´Í¼µÄ³É¹û£¬È»ºóÁµÁµ²»ÉáµØËÉ¿ªÄÇÖ»ÔàÊÖ
+    # æˆåŠŸåï¼ŒéªšåŒ…äººç±»æ€»å–œæ¬¢é»˜é»˜åœ°æ¬£èµä¸€ä¸‹è‡ªå·±æ‹¼å›¾çš„æˆæœï¼Œç„¶åæ‹æ‹ä¸èˆåœ°æ¾å¼€é‚£åªè„æ‰‹
     time.sleep(0.5)
     ActionChains(driver).release().perform()
 
 def login_cnblogs(username,password):
     driver = webdriver.Chrome()
     try:
-        # 1¡¢ÊäÈëÕËºÅÃÜÂë»Ø³µ
+        # 1ã€è¾“å…¥è´¦å·å¯†ç å›è½¦
         driver.implicitly_wait(3)
         driver.get('https://passport.cnblogs.com/user/signin')
 
@@ -177,13 +177,13 @@ def login_cnblogs(username,password):
         input_pwd.send_keys(password)
         signin.click()
 
-        # 2¡¢ÆÆ½â»¬¶¯ÈÏÖ¤
+        # 2ã€ç ´è§£æ»‘åŠ¨è®¤è¯
         crack(driver)
 
-        time.sleep(1000000)  # Ë¯Ê±¼ä³¤Ò»µã£¬È·¶¨µÇÂ¼³É¹¦
+        time.sleep(1000000)  # ç¡æ—¶é—´é•¿ä¸€ç‚¹ï¼Œç¡®å®šç™»å½•æˆåŠŸ
     finally:
         # driver.close()
         pass
 
 if __name__ == '__main__':
-    login_cnblogs(username='Mr.dzr',password='djj1211#1')
+    login_cnblogs(username='Mr.dzr',password='******#1')

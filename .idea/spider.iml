@@ -2,17 +2,25 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/项目/jd" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/项目/Taobao_Spider" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MyProject/jd" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MyProject/kuaishou" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MyProject/joker" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Scrapy" />
-      <excludeFolder url="file://$MODULE_DIR$/selenium" />
+      <excludeFolder url="file://$MODULE_DIR$/selenium基础" />
       <excludeFolder url="file://$MODULE_DIR$/tensorflow_cnn" />
+      <excludeFolder url="file://$MODULE_DIR$/代理抓取" />
       <excludeFolder url="file://$MODULE_DIR$/加密解密" />
       <excludeFolder url="file://$MODULE_DIR$/图像验证码" />
+      <excludeFolder url="file://$MODULE_DIR$/定时" />
       <excludeFolder url="file://$MODULE_DIR$/打码" />
       <excludeFolder url="file://$MODULE_DIR$/数据分析" />
       <excludeFolder url="file://$MODULE_DIR$/数据库" />
       <excludeFolder url="file://$MODULE_DIR$/模拟登陆" />
+      <excludeFolder url="file://$MODULE_DIR$/项目" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (spiders)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

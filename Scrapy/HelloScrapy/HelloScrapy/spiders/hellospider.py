@@ -43,8 +43,8 @@ class HellospiderSpider(scrapy.Spider):
                 'email': '18610059580',
                 'password': '659190'
             }
-            # 登录数据提交
-            yield scrapy.FormRequest(url, callback=self.parse, cookies=cookies,formdata=formdata)
+            # 登录数据提交  dont_filter = True 来阻止去重。而scrapy框架中是默认去重的 (headers\meta\methond\encoding)
+            yield scrapy.FormRequest(url, callback=self.parse, cookies=cookies,formdata=formdata,dont_filter=False)
 
     def parse(self, response):                  # 地址解析
         print(response.body)                    # "<class 'bytes'> 类型网页"
@@ -93,4 +93,17 @@ class HellospiderSpider(scrapy.Spider):
     re.sub('正则','替换成'，str，次数)
     """
     # 执行该爬虫，并转化为csv文件
-    cmdline.execute(['scrapy', 'crawl', 'hellospider', '-o', 'wiki.csv', '-t', 'csv'])
+    # cmdline.execute(['scrapy', 'crawl', 'hellospider', '-o', 'wiki.csv', '-t', 'csv'])
+    # scrapy crawl human -o human.json
+    import sys
+    from scrapy.cmdline import execute
+
+    if __name__ == '__main__':
+        # 方式一
+        # 可以直接写    脚本的目录下终端运行  -->  python  脚本名
+        # execute(["scrapy","crawl","chouti","--nolog"])
+
+        # #也可以借助sys.argv    在命令行中传参数会被argv捕获（argv为一个列表，第一个参数为脚本的路径，后面是传的参数）
+        # #  比如   运行命令 :    python  脚本  参数（chouti）
+        # print(sys.argv)
+        execute(['scrapy', 'crawl', sys.argv[1], '--nolog'])
